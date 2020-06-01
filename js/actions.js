@@ -1,1 +1,2 @@
 renderTables(account);
+summary(account);

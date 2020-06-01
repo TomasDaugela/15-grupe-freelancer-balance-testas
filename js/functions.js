@@ -42,3 +42,49 @@ function renderTables (data) {
     document.querySelector(".cell#totalBalance").innerHTML = totalBalance + ' Eur';
     document.querySelector('.table-content').innerHTML = HTML;
 } 
+
+
+function summary(data) {
+    let minIncome = Infinity;
+    let minIncomeID = '';
+    let maxIncome = 0;
+    let maxIncomeID = '';
+    let minExpenses = Infinity;
+    let minExpensesID = '';
+    let maxExpenses = 0;
+    let maxExpensesID = '';
+
+    for(let i=0; i<data.length; i++){
+        let inc = data[i].income;
+        let exp = data[i].expense;
+
+        if(inc > maxIncome) {
+            maxIncome = inc;
+            maxIncomeID = months[data[i].month-1];
+        }
+
+        if(exp > maxExpenses){
+            maxExpenses = exp;
+            maxExpensesID = months[data[i].month-1];
+        }
+
+        if(inc < minIncome && inc != 0){
+            minIncome = inc;
+            minIncomeID = months[data[i].month-1];
+        }
+
+        if(exp < minExpenses && exp != 0){
+            minExpenses = exp;
+            minExpensesID = months[data[i].month-1];
+        }
+
+    }
+
+    console.log(maxIncome);
+    console.log(maxExpenses);
+
+    document.querySelector("#maxIncome").innerHTML = maxIncomeID;
+    document.querySelector("#minIncome").innerHTML = minIncomeID;
+    document.querySelector("#maxExpenses").innerHTML = maxExpensesID;
+    document.querySelector("#minExpenses").innerHTML = minExpensesID;
+} 
