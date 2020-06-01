@@ -80,9 +80,6 @@ function summary(data) {
 
     }
 
-    console.log(maxIncome);
-    console.log(maxExpenses);
-
     document.querySelector("#maxIncome").innerHTML = maxIncomeID;
     document.querySelector("#minIncome").innerHTML = minIncomeID;
     document.querySelector("#maxExpenses").innerHTML = maxExpensesID;
